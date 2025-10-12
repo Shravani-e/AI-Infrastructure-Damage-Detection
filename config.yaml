@@ -1,0 +1,31 @@
+seed: 42
+device: auto
+gsd_mm_per_px: 0.20
+train:
+  images_dir: data/demo/images
+  masks_dir: data/demo/masks
+  img_size: 512
+  batch_size: 4
+  epochs: 1
+  lr: 1.0e-3
+  val_split: 0.2
+  out_dir: outputs/unet_demo
+  loss: bce_dice
+infer:
+  weights: outputs/unet_demo/best.pt
+  thresh: 0.5
+regression:
+  model_type: rf
+  out_dir: outputs/regressor
+severity:
+  minor:
+    depth_mm_lt: 5
+    width_mm_le: 0.2
+  moderate:
+    depth_mm_range: [5, 15]
+    width_mm_range: [0.2, 0.5]
+    length_mm_gt: 500
+  severe:
+    depth_mm_gt: 15
+    width_mm_gt: 0.5
+    length_mm_gt: 1500
