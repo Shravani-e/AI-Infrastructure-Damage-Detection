@@ -38,6 +38,11 @@ matplotlib      # Plotting
 pip install -r requirements.txt
 ```
 
+```startvenv
+```bash
+.venv\Scripts\activate // to activate
+.venv\Scripts\deactivate // to de-activate
+
 2. Generate Demo Data (Optional):
 ```bash
 python data/demo/make_synth_demo.py
